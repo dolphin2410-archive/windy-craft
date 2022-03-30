@@ -7,17 +7,16 @@ import java.util.Random
 class WindyRunnable: BukkitRunnable() {
     companion object {
         fun randomTick(): Long {
-            return Random().nextLong(400) + 200 // 10s ~ 30s
+            return Random().nextLong(400) + 300 // 15s ~ 35s
         }
     }
 
     fun blowWind(direction: Direction) {
         for (player in Bukkit.getOnlinePlayers()) {
-            println("Wind blew")
             var counter = 0
             object: BukkitRunnable() {
                 override fun run() {
-                    if (counter++ > 20) {
+                    if (counter++ > 14) {
                         cancel()
                         return
                     }
